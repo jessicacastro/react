@@ -1,6 +1,10 @@
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "./store";
 
 export const App = () => {
   return (
-    <h1>Olá mundo</h1>
+    <ReduxProvider store={store}>
+      <h1>Olá</h1>
+    </ReduxProvider>
   );
 }
