@@ -1,14 +1,7 @@
-import { useAppSelector } from "../store";
+import { useCurrentLesson } from "../store/hooks/useCurrentLesson";
 
 export const Header = () => {
-  const { currentLesson, currentModule } = useAppSelector(state => {
-    const { currentModuleIndex, currentLessonIndex } = state.player;
-
-    const currentModule = state.player.course.modules[currentModuleIndex];
-    const currentLesson = currentModule.lessons[currentLessonIndex];
-
-    return {currentLesson, currentModule };
-  })
+  const { currentLesson, currentModule } = useCurrentLesson();
   
   return(
     <header className="flex flex-col gap-1">
