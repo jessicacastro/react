@@ -1,4 +1,5 @@
-import { create } from "zustand";
+import { createWithEqualityFn as create } from "zustand/traditional";
+
 import { api } from "../lib/axios";
 
 interface Course {
@@ -76,3 +77,13 @@ export const useStore = create<PlayerState>((set, get) => {
     },
   };
 });
+
+export const useCurrentLesson = () =>
+  useStore((state) => {
+    const { currentModuleIndex, currentLessonIndex } = state;
+
+    const currentModule = state.course?.modules[currentModuleIndex];
+    const currentLesson = currentModule?.lessons[currentLessonIndex];
+
+    return { currentLesson, currentModule };
+  });

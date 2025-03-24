@@ -1,11 +1,11 @@
-import { useStore } from "../zustand-store";
-import { useCurrentLesson } from "../zustand-store";
+import { useAppSelector } from "../../store";
+import { useCurrentLesson } from "../../store/hooks/useCurrentLesson";
 
-export const Header = () => {
-  const { isLoading } = useStore(store => ({ isLoading: store.isLoading }));
+export const HeaderWithRedux = () => {
   const { currentLesson, currentModule } = useCurrentLesson();
+  const isCourseLoading = useAppSelector(state => state.player.isLoading);
 
-  if(isLoading) return null;
+  if(isCourseLoading) return null;
 
   return(
     <header className="flex flex-col gap-1 transition-transform">
