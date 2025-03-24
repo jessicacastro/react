@@ -5,7 +5,7 @@ import { Video } from "../components/Video";
 import { Module } from "../components/Module";
 import { useEffect } from "react";
 import { useStore } from "../zustand-store";
-import { useCurrentLesson } from "../zustand-store";
+import { useCurrentLesson } from "../zustand-store/hooks/useCurrentLesson";
 
 export const Player = () => {
   const { course, loadCourse } = useStore(store => ({ course: store.course, loadCourse: store.loadCourse }));

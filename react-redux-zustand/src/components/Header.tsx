@@ -1,5 +1,5 @@
 import { useStore } from "../zustand-store";
-import { useCurrentLesson } from "../zustand-store";
+import { useCurrentLesson } from "../zustand-store/hooks/useCurrentLesson";
 
 export const Header = () => {
   const { isLoading } = useStore(store => ({ isLoading: store.isLoading }));
